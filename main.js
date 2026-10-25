@@ -16,11 +16,13 @@ document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Adds smooth inertia
 
-// 3. Lighting (Crucial so your planet isn't pitch black)
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-scene.add(ambientLight);
+const hemisphereLight = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+scene.add( hemisphereLight );
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+const directionalLight2 = new THREE.DirectionalLight( 0xffffff, 1 );
+scene.add( directionalLight2 );
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
 directionalLight.position.set(-10, -0, -0.5);
 scene.add(directionalLight);
 
